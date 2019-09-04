@@ -1,5 +1,6 @@
 import { encrypt } from './encrypt';
 import { decrypt } from './decrypt';
+import { hMac } from './hmac';
 import * as crypto from 'crypto';
 
 const alg = 'aes-256-cbc'
@@ -19,3 +20,7 @@ console.log({ivBase64, encryptedDataBase64});
 
 let decryptedData = decrypt(alg, pass, salt, iv, encryptedData)
 console.log({'buffer': decryptedData, 'string': decryptedData.toString('utf-8')});
+
+console.log('sha256');
+let hmacSr = hMac(message, pass);
+console.log(hmacSr.toString('base64'));
