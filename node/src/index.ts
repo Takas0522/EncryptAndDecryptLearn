@@ -22,5 +22,6 @@ let decryptedData = decrypt(alg, pass, salt, iv, encryptedData)
 console.log({'buffer': decryptedData, 'string': decryptedData.toString('utf-8')});
 
 console.log('sha256');
-let hmacSr = hMac(message, pass);
+const secret = 'testsecret';
+let hmacSr = hMac(message, secret);
 console.log(hmacSr.toString('base64'));
